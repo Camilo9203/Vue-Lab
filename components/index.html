@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js Components Fundamentalst</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Vue.js Components Fundamentals</h1>
+        <click-counter></click-counter>
+        <click-counter></click-counter>
+        <click-counter></click-counter>
+        <click-counter></click-counter>
+
+        <div class="content">
+            <h1 class="title">Coffee Plans</h1>
+            <h2 class="subtitle">
+                We travel the world to source the very best single origin coffee for you
+            </h2>
+            <plan-picker></plan-picker>
+        </div>
+        </div>
+    </div>
+
+    <script type="text/x-template" id="plan-picker-template">
+        <div class="plans">
+          <plan v-for="plan in plans" :name="plan" @select="selectPlan" :selected-plan="selectedPlan"></plan>
+        </div>
+    </script>
+
+    <script type="text/x-template" id="plan-template">
+        <div @click="select" class="plan" :class="{'active': isSelected}">
+            <div class="description">
+                <span class="title">
+                {{name}}
+                </span>
+            </div>
+        </div>
+    </script>
+    <script type="text/x-template" id="click-counter-template">
+        <div>
+          <p>the count is:</p>
+          <button @click="count++">{{count}}</button>
+        </div>
+    </script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
